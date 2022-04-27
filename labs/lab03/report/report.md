@@ -1,7 +1,7 @@
 ---
 ## Front matter
 title: "Лабораторная работа №3"
-subtitle: "Управление версиями"
+subtitle: "Язык разметки Markdown"
 author: "Тараканов Борис Александрович студ 1032212284"
 
 ## Generic otions
