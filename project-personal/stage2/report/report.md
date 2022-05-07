@@ -1,38 +1,20 @@
 ---
-## Front matter
-title: "Шаблон отчёта по лабораторной работе"
-subtitle: "Простейший вариант"
-author: "Дмитрий Сергеевич Кулябов"
-
-## Generic otions
+# Front matter
 lang: ru-RU
+title: "Stage 2"
+subtitle: "Добавление информации на сайт"
+author: "Тараканов Борис Александрович студент НПИбд-02-21"
+
+# Formatting
 toc-title: "Содержание"
-
-## Bibliography
-bibliography: bib/cite.bib
-csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
-
-## Pdf output format
 toc: true # Table of contents
-toc-depth: 2
-lof: true # List of figures
-lot: true # List of tables
+toc_depth: 2
 fontsize: 12pt
 linestretch: 1.5
-papersize: a4
+papersize: a4paper
 documentclass: scrreprt
-## I18n polyglossia
-polyglossia-lang:
-  name: russian
-  options:
-	- spelling=modern
-	- babelshorthands=true
-polyglossia-otherlangs:
-  name: english
-## I18n babel
-babel-lang: russian
-babel-otherlangs: english
-## Fonts
+polyglossia-lang: russian
+polyglossia-otherlangs: english
 mainfont: PT Serif
 romanfont: PT Serif
 sansfont: PT Sans
@@ -40,80 +22,69 @@ monofont: PT Mono
 mainfontoptions: Ligatures=TeX
 romanfontoptions: Ligatures=TeX
 sansfontoptions: Ligatures=TeX,Scale=MatchLowercase
-monofontoptions: Scale=MatchLowercase,Scale=0.9
-## Biblatex
-biblatex: true
-biblio-style: "gost-numeric"
-biblatexoptions:
-  - parentracker=true
-  - backend=biber
-  - hyperref=auto
-  - language=auto
-  - autolang=other*
-  - citestyle=gost-numeric
-## Pandoc-crossref LaTeX customization
-figureTitle: "Рис."
-tableTitle: "Таблица"
-listingTitle: "Листинг"
-lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
-lolTitle: "Листинги"
-## Misc options
+monofontoptions: Scale=MatchLowercase
 indent: true
+pdf-engine: lualatex
 header-includes:
-  - \usepackage{indentfirst}
+  - \linepenalty=10 # the penalty added to the badness of each line within a paragraph (no associated penalty node) Increasing the value makes tex try to have fewer lines in the paragraph.
+  - \interlinepenalty=0 # value of the penalty (node) added after each line of a paragraph.
+  - \hyphenpenalty=50 # the penalty for line breaking at an automatically inserted hyphen
+  - \exhyphenpenalty=50 # the penalty for line breaking at an explicit hyphen
+  - \binoppenalty=700 # the penalty for breaking a line at a binary operator
+  - \relpenalty=500 # the penalty for breaking a line at a relation
+  - \clubpenalty=150 # extra penalty for breaking after first line of a paragraph
+  - \widowpenalty=150 # extra penalty for breaking before last line of a paragraph
+  - \displaywidowpenalty=50 # extra penalty for breaking before last line before a display math
+  - \brokenpenalty=100 # extra penalty for page breaking after a hyphenated line
+  - \predisplaypenalty=10000 # penalty for breaking before a display
+  - \postdisplaypenalty=0 # penalty for breaking after a display
+  - \floatingpenalty = 20000 # penalty for splitting an insertion (can only be split footnote in standard LaTeX)
+  - \raggedbottom # or \flushbottom
   - \usepackage{float} # keep figures where there are in the text
   - \floatplacement{figure}{H} # keep figures where there are in the text
 ---
 
+
 # Цель работы
 
-Здесь приводится формулировка цели лабораторной работы. Формулировки
-цели для каждой лабораторной работы приведены в методических
-указаниях.
+Научиться работать с генератором сайтов Hugo
 
-Цель данного шаблона --- максимально упростить подготовку отчётов по
-лабораторным работам.  Модифицируя данный шаблон, студенты смогут без
-труда подготовить отчёт по лабораторным работам, а также познакомиться
-с основными возможностями разметки Markdown.
 
-# Задание
+# Задание 
 
-Здесь приводится описание задания в соответствии с рекомендациями
-методического пособия и выданным вариантом.
-
-# Теоретическое введение
-
-Здесь описываются теоретические аспекты, связанные с выполнением работы.
-
-Например, в табл. [-@tbl:std-dir] приведено краткое описание стандартных каталогов Unix.
-
-: Описание некоторых каталогов файловой системы GNU Linux {#tbl:std-dir}
-
-| Имя каталога | Описание каталога                                                                                                          |
-|--------------|----------------------------------------------------------------------------------------------------------------------------|
-| `/`          | Корневая директория, содержащая всю файловую                                                                               |
-| `/bin `      | Основные системные утилиты, необходимые как в однопользовательском режиме, так и при обычной работе всем пользователям     |
-| `/etc`       | Общесистемные конфигурационные файлы и файлы конфигурации установленных программ                                           |
-| `/home`      | Содержит домашние директории пользователей, которые, в свою очередь, содержат персональные настройки и данные пользователя |
-| `/media`     | Точки монтирования для сменных носителей                                                                                   |
-| `/root`      | Домашняя директория пользователя  `root`                                                                                   |
-| `/tmp`       | Временные файлы                                                                                                            |
-| `/usr`       | Вторичная иерархия для данных пользователя                                                                                 |
-
-Более подробно об Unix см. в [@gnu-doc:bash;@newham:2005:bash;@zarrelli:2017:bash;@robbins:2013:bash;@tannenbaum:arch-pc:ru;@tannenbaum:modern-os:ru].
+1. Добавить свою фотографию
+2. Добавить информацию о себе
+3. Добавить информацию об интересах 
+4. Сделать пост по прошлой неделе
+5. Сделать пост на тему непрерывной интеграции и развертывания
 
 # Выполнение лабораторной работы
 
-Описываются проведённые действия, в качестве иллюстрации даётся ссылка на иллюстрацию (рис. [-@fig:001])
+1. Загрузим новый аватар (рис. 1) и поместим в папку /home/batarakanov/work/blog/content/authors/admin
 
-![Название рисунка](image/placeimg_800_600_tech.jpg){ #fig:001 width=70% }
+![Новый аватар](images/1.jpg){ #fig:001 width=70% }
 
-# Выводы
+2. Изменим информацию о себе (рис. 2), редактируя файл /home/batarakanov/work/blog/content/authors/admin/_index.md 
 
-Здесь кратко описываются итоги проделанной работы.
+![Процесс редактирования информации](images/2.jpg){ #fig:001 width=70% }
 
-# Список литературы{.unnumbered}
 
-::: {#refs}
-:::
+3. Добавим пост, посвященный непрерывной интеграции и развертыванию (рис. 3), используя шаблон ,находящийся в папке /home/batarakanov/work/blog/content/post
+
+![Процесс создания поста](images/3.jpg){ #fig:001 width=70% }
+
+4. Добавим пост, посвященный прошлой неделе (в моем случае он связан с игровым движком) (рис. 4), используя шаблон ,находящийся в папке /home/batarakanov/work/blog/content/post
+
+![Процесс создания поста](images/4.jpg){ #fig:001 width=70% }
+
+5. Проверим результат после синхронизации с Github:
+- Главная страница (рис. 5)
+- Список постов (рис. 6)
+- Пост по прошлой неделе (рис. 7)
+- Пост посвященный непрерывной интеграции и развертыванию  (рис. 8)
+
+![Главная страница](images/5.png){ #fig:001 width=70% }
+![Список постов](images/6.png){ #fig:001 width=70% }
+![Пост по прошлой неделе](images/7.png){ #fig:001 width=70% }
+![Пост посвященный непрерывной интеграции и развертыванию](images/8.png){ #fig:001 width=70% }
+
