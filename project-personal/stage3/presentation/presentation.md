@@ -3,21 +3,22 @@
 lang: ru-RU
 title: Индивидуальный проект. Этап 3
 author: |
-	Тараканов Борис - студент группы НФИбд-01-21
+    Тараканов Борис - студент группы НпИбд-02-21
 date: 12.05.2022
 
 ## Formatting
 toc: false
 slide_level: 2
 theme: metropolis
-header-includes:
-- \metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}
-- '\makeatletter'
-- '\beamer@ignorenonframefalse'
-- '\makeatother'
+header-includes: 
+ - \metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}
+ - '\makeatletter'
+ - '\beamer@ignorenonframefalse'
+ - '\makeatother'
 aspectratio: 43
 section-titles: true
 ---
+
 
 # Редактирование информации о себе.
 
